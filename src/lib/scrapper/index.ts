@@ -1,8 +1,12 @@
 "use server";
 
+import {
+	extractCurrency,
+	extractDescription,
+	extractPrice,
+} from "@/utils/utils";
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { extractCurrency, extractDescription, extractPrice } from "../utils";
 
 export async function scrapeAmazonProduct(url: string) {
 	if (!url) return;
@@ -84,6 +88,6 @@ export async function scrapeAmazonProduct(url: string) {
 
 		return data;
 	} catch (error: any) {
-		console.log(error);
+		throw new Error(`Failed to scrape product: ${error.mesage}`);
 	}
 }
