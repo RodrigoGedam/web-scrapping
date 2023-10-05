@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Fragment, useState } from "react";
 
 export default function Modal() {
-	let [isOpen, setIsOpen] = useState(true);
+	let [isOpen, setIsOpen] = useState(false);
 
 	const handleModal = () => setIsOpen(!isOpen);
 
